@@ -12,19 +12,19 @@ Vagrant.configure(2) do |config|
   config.vm.define "client1" do |client1|
     client1.vm.box="centos/7"
     client1.vm.hostname = "client1.bolocal"
-    client1.vm.network :private_network, ip: "192.168.1.101", :netmask => "255.255.255.255"
+    client1.vm.network :private_network, ip: "192.168.1.101"
   end
 
   config.vm.define "client2" do |client2|
     client2.vm.box="centos/7"
     client2.vm.hostname = "client2.bolocal"
-    client2.vm.network :private_network, ip: "192.168.1.102", :netmask => "255.255.255.255"
+    client2.vm.network :private_network, ip: "192.168.1.102"
   end
   
   config.vm.define "client3" do |client3|
     client3.vm.box = "centos/7"
     client3.vm.hostname = "client3.bolocal"
-    client3.vm.network :private_network, ip: "192.168.1.103", :netmask => "255.255.255.255"
+    client3.vm.network :private_network, ip: "192.168.1.103"
   end
 
   config.vm.provision "ansible" do |ansible|
