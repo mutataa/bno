@@ -1,23 +1,33 @@
 ---
 - hosts: all
   become: yes
-
+  become_method: sudo
   tasks:
   - name: Install EPEL repo
     yum:
       name: epel-release
       state: present
-
+  - name: ElRepo Release
+    yum:
+      name: elrepo-release
+      state: present
+  - name:
+    yum:
+      name: yum-plugin-elrepo
+      state: present
   - name: Install Ansible
     yum:
       name: ansible
+      state: present    
+  - name: Install net-tool
+    yum:
+      name: net-tools
+      state: present
+  - name: Install wireguard
+    yum:
+      name:
+        - kmod-wireguard
+	- wireguard-tools
+      update_cache: yes
       state: present
   
-  - name: Install git, nmap and net-tools, wireguard
-    yum:
-      state: present
-      name:
-        - git
-        - nmap
-        - net-tools
-		- wireguard
