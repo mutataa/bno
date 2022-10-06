@@ -30,4 +30,9 @@
 	- wireguard-tools
       update_cache: yes
       state: present
-  
+  - name: Update SystemCtl Settings
+    sysctl:
+      name: net.ipv4.ip_forward
+      value: '1'
+      state: present
+      reload: yes
